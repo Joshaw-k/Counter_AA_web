@@ -27,7 +27,7 @@ const Counter: React.FC<Props> = ({ smartAccount, provider }) => {
   const [count, setCount] = useState<number>(0);
   const [address, setAddress] = useState<string>("");
 
-  const counterAddress = import.meta.env.VITE_COUNTER_CONTRACT_ADDRESS;
+  const counterAddress = "0xaAb241EFbA0b5A5A28d95973DF36c6706337EB67";
 
   const getCount = async (isUpdating: boolean) => {
     const contract = new ethers.Contract(counterAddress, abi, provider);
