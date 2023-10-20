@@ -6,10 +6,6 @@ import { ChainId } from "@biconomy/core-types";
 import { ethers } from "ethers";
 import { IBundler, Bundler } from "@biconomy/bundler";
 import {
-  BiconomySmartAccount,
-  BiconomySmartAccountConfig,
-} from "@biconomy/account";
-import {
   BiconomySmartAccountV2,
   DEFAULT_ENTRYPOINT_ADDRESS,
 } from "@biconomy/account";
@@ -19,8 +15,6 @@ import {
   DEFAULT_ECDSA_OWNERSHIP_MODULE,
 } from "@biconomy/modules";
 import Counter from "./Components/Counter";
-import styles from "@/styles/Home.module.css";
-import abi from "./utils/counterAbi.json";
 
 const bundler: IBundler = new Bundler({
   bundlerUrl:

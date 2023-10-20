@@ -26,14 +26,11 @@ const LastUserDisplay: React.FC<{ address: string }> = ({ address }) => {
 const Counter: React.FC<Props> = ({ smartAccount, provider }) => {
   const [count, setCount] = useState<number>(0);
   const [address, setAddress] = useState<string>("");
-  const [counterContract, setCounterContract] = useState<any>(null);
-  const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const counterAddress = import.meta.env.VITE_COUNTER_CONTRACT_ADDRESS;
 
   const getCount = async (isUpdating: boolean) => {
     const contract = new ethers.Contract(counterAddress, abi, provider);
-    setCounterContract(contract);
     const currentCount = await contract.number();
     const currentAddress = await contract.lastUser();
     setCount(currentCount.toNumber());
@@ -221,9 +218,8 @@ const Counter: React.FC<Props> = ({ smartAccount, provider }) => {
     }
   };
   useEffect(() => {
-    setIsLoading(true);
     getCount(false);
-  }, [count]);
+  }, []);
   return (
     <>
       <TotalCountDisplay count={count} />
